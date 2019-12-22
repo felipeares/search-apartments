@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./SearchApartments.module.css";
+import styles from "./SearchApartmentsForm.module.css";
 import PropTypes from "prop-types";
 
-const SearchApartments = props => {
+const SearchApartmentsForm = props => {
   return (
     <div className={styles.SearchApartments}>
       <div>SEARCH</div>
@@ -11,7 +11,7 @@ const SearchApartments = props => {
   );
 };
 
-SearchApartments.propTypes = {
+SearchApartmentsForm.propTypes = {
   searchFieldChanged: PropTypes.func.isRequired,
   filtersChanged: PropTypes.func.isRequired,
   searchField: PropTypes.string.isRequired,
@@ -19,4 +19,4 @@ SearchApartments.propTypes = {
   filters: PropTypes.object.isRequired
 };
 
-export default SearchApartments;
+export default SearchApartmentsForm;
