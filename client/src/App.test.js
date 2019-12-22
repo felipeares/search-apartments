@@ -2,12 +2,17 @@ import React from "react";
 import { shallow } from "enzyme";
 import App from "./App";
 import { Switch, Route, Redirect } from "react-router-dom";
+import Layout from "./hoc/Layout/Layout";
 
 describe("SearchApartments: rendering tests", () => {
   let wrapper;
 
   beforeEach(() => {
     wrapper = shallow(<App />);
+  });
+
+  it("should have a Layout component", () => {
+    expect(wrapper.find(Layout).length).toEqual(1);
   });
 
   it("should have a Switch component", () => {
