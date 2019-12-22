@@ -3,3 +3,15 @@ body {
   padding: 0;
   font-family: "Open Sans", sans-serif;
 }
+
+button {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+select:focus {
+  outline: none;
+}
