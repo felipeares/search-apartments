@@ -1,3 +1,104 @@
 .SearchApartmentsForm {
-  font-size: initial;
+  width: 100%;
+}
+
+.SearchForm {
+  padding: 15px 0px;
+  background-color: #de425b;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.SearchForm input {
+  border-radius: 10px 0px 0px 10px;
+  border: none;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 18px;
+  color: #555;
+  font-weight: 100;
+  width: 80%;
+}
+
+.SearchForm input:focus {
+  outline: none;
+}
+
+.SearchForm button {
+  border: none;
+  background: #fdad37;
+  border-radius: 0px 10px 10px 0px;
+  width: 50px;
+  color: white;
+}
+
+.SearchForm button:focus {
+  outline: none;
+}
+
+.searchHelperList {
+  border: solid 1px #f7f7f7;
+  margin: auto;
+  min-width: 79%;
+  list-style: none;
+  padding: 0;
+  color: #999;
+  font-size: 18px;
+  position: fixed;
+  top: 105px;
+  left: calc(10% - 25px);
+  background: rgba(255, 255, 255, 0.95);
+  border-top: 0px;
+  font-weight: 100;
+}
+
+.searchHelpersList li {
+  padding: 8px;
+}
+
+.Filters {
+  padding: 15px 0px;
+  background-color: #de425b;
+  text-align: center;
+}
+
+.ToggleButton {
+  color: white;
+  font-size: 16px;
+  font-weight: 100;
+  border: solid 1px white;
+  background: none;
+  border-radius: 16px;
+  padding: 5px 10px;
+}
+
+.FiltersList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.FiltersList li {
+  margin-bottom: 15px;
+}
+
+.FiltersList li h3 {
+  margin: 10px 0px;
+}
+
+.FiltersList li select {
+  width: 40%;
+  background: white;
+  padding: 10px;
+  box-sizing: border-box;
+  border: none;
+  margin: 0% 1%;
+  font-size: 11px;
+  color: #333;
+  font-weight: 100;
 }

@@ -9,15 +9,29 @@ describe("SearchApartmentsForm: rendering tests", () => {
     wrapper = shallow(
       <SearchApartmentsForm
         searchFieldChanged={jest.fn()}
-        filtersChanged={jest.fn()}
+        searchFieldSubmit={jest.fn()}
+        selectFromHelper={jest.fn()}
         searchField={""}
         searchHelperList={[]}
-        filters={{}}
+        loading={false}
+        filters={[]}
+        filtersChanged={jest.fn()}
+        toggleFilters={jest.fn()}
+        showFilters={false}
       />
     );
   });
 
-  it("should render a main div with class SearchApartments", () => {
-    expect(wrapper.find("div.SearchApartments").length).toEqual(1);
+  it("should render a main div with class SearchApartmentsForm", () => {
+    expect(wrapper.find("div.SearchApartmentsForm").length).toEqual(1);
+  });
+
+  it("should render a form with class SearchForm", () => {
+    expect(wrapper.find("form.SearchForm").length).toEqual(1);
+  });
+
+  it("should render a helper box when searchHelperList is not empty", () => {
+    wrapper.setProps({ searchHelperList: ["a", "b"] });
+    expect(wrapper.find("ul.searchHelperList li").length).toEqual(2);
   });
 });
