@@ -1,0 +1,24 @@
+import React from "react";
+import { shallow } from "enzyme";
+import App from "./App";
+import { Switch, Route, Redirect } from "react-router-dom";
+
+describe("SearchApartments: rendering tests", () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<App />);
+  });
+
+  it("should have a Switch component", () => {
+    expect(wrapper.find(Switch).length).toEqual(1);
+  });
+
+  it("should have two routes", () => {
+    expect(wrapper.find(Route).length).toEqual(2);
+  });
+
+  it("should have one redirection to root", () => {
+    expect(wrapper.containsMatchingElement(<Redirect to="/" />)).toEqual(true);
+  });
+});
