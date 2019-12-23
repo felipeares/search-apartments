@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from "./SearchApartments.module.css";
+import axios from "../../axios";
 
 import SearchApartmentsForm from "../../components/SearchApartmentsForm/SearchApartmentsForm";
 
@@ -119,6 +120,17 @@ class SearchApartments extends Component {
     this.setState({ loading: true, searchHelperList: [] });
 
     // fetch
+    // start async search
+    axios
+      .get("/apartments/search/" + encodeURI(this.state.searchField))
+      .then(response => {
+        console.log(response.data);
+        this.setState({ loading: false });
+      })
+      .catch(error => {
+        console.log(error);
+        this.setState({ loading: false });
+      });
   };
 
   searchCitiesNaemsStartingWith = word => {
@@ -127,6 +139,18 @@ class SearchApartments extends Component {
 
     // prevent search if loading
     if (this.state.loading) return;
+
+    // fetch
+    // start async search
+    axios
+      .get("/cities/search/" + encodeURI(this.state.searchField))
+      .then(response => {
+        console.log(response.data);
+        this.setState({ searchHelperList: response.data });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   // Search Form Handlers
