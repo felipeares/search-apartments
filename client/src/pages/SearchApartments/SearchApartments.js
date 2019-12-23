@@ -3,13 +3,16 @@ import styles from "./SearchApartments.module.css";
 import axios from "../../axios";
 
 import SearchApartmentsForm from "../../components/SearchApartmentsForm/SearchApartmentsForm";
+import ApartmentsList from "../../components/ApartmentsList/ApartmentsList";
 
 class SearchApartments extends Component {
   state = {
     searchField: "",
     searchHelperList: [],
+    firstSearch: false,
     filters: [
       {
+        id: "price",
         name: "Precio",
         type: "range",
         minValues: [
@@ -35,6 +38,7 @@ class SearchApartments extends Component {
         selected: [0, 10000000]
       },
       {
+        id: "size",
         name: "Tamaño",
         type: "range",
         minValues: [
@@ -59,6 +63,7 @@ class SearchApartments extends Component {
         selected: [0, 2000]
       },
       {
+        id: "rooms",
         name: "Habitaciones",
         type: "range",
         minValues: [
@@ -81,6 +86,7 @@ class SearchApartments extends Component {
         selected: [0, 20]
       },
       {
+        id: "bathrooms",
         name: "Baños",
         type: "range",
         minValues: [
@@ -110,9 +116,6 @@ class SearchApartments extends Component {
 
   // ASYNC AJAX calls
   searchApartmentsForCity = () => {
-    // start searching for new apartments
-    console.log("ASYNC searchForCity");
-
     // prevent search if loading
     if (this.state.loading) return;
 
@@ -124,19 +127,19 @@ class SearchApartments extends Component {
     axios
       .get("/apartments/search/" + encodeURI(this.state.searchField))
       .then(response => {
-        console.log(response.data);
-        this.setState({ loading: false });
+        this.setState({
+          apartments: response.data,
+          loading: false,
+          firstSearch: true
+        });
       })
       .catch(error => {
         console.log(error);
-        this.setState({ loading: false });
+        this.setState({ apartments: [], loading: false });
       });
   };
 
   searchCitiesNaemsStartingWith = word => {
-    // start searching for cities names
-    console.log("ASYNC searchCitiesNaemsStartingWith");
-
     // prevent search if loading
     if (this.state.loading) return;
 
@@ -145,7 +148,6 @@ class SearchApartments extends Component {
     axios
       .get("/cities/search/" + encodeURI(this.state.searchField))
       .then(response => {
-        console.log(response.data);
         this.setState({ searchHelperList: response.data });
       })
       .catch(error => {
@@ -231,6 +233,11 @@ class SearchApartments extends Component {
           filters={this.state.filters}
           toggleFilters={this.toggleFiltersHandler}
           showFilters={this.state.showFilters}
+        />
+        <ApartmentsList
+          apartments={this.state.apartments}
+          filters={this.state.filters}
+          firstSearch={this.state.firstSearch}
         />
       </div>
     );
