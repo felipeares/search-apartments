@@ -5,11 +5,15 @@ import styles from "./Apartment.module.css";
 const Apartment = props => (
   <li className={styles.Apartment}>
     <img alt={props.title} src={props.image} />
+    <label>{props.price.toLocaleString("es-ES")} €</label>
     <p>{props.title}</p>
-    <p>{props.price}</p>
-    <p>{props.size}</p>
-    <p>{props.rooms}</p>
-    <p>{props.bathrooms}</p>
+    <ul>
+      <li>{props.size} m²</li>
+      <li>|</li>
+      <li>{props.rooms} habs.</li>
+      <li>|</li>
+      <li>{props.bathrooms} baños</li>
+    </ul>
   </li>
 );
 
