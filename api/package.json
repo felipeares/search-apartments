@@ -1,0 +1,19 @@
+{
+  "name": "apartments-api",
+  "version": "1.0.0",
+  "description": "apartments api",
+  "author": "felipeares",
+  "license": "MIT",
+  "main": "app.js",
+  "keywords": [
+    "nodejs",
+    "express"
+  ],
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "cors": "^2.8.5"
+  }
+}
