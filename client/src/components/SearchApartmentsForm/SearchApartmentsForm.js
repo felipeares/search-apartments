@@ -72,7 +72,7 @@ const SearchApartmentsForm = props => {
       <div className={styles.Filters}>
         {filters}
         <button className={styles.ToggleButton} onClick={props.toggleFilters}>
-          {props.showFilters ? "Hide Filters" : "Show Filters"}
+          {props.showFilters ? "Ocultar Filtros" : "Mostrar Filtros"}
         </button>
       </div>
     </div>

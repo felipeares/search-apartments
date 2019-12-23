@@ -7,10 +7,10 @@ import styles from "./NavigationItems.module.css";
 const navigationItems = () => {
   let navigation = [
     <NavigationItem key="home" link="/">
-      Home
+      Inicio
     </NavigationItem>,
     <NavigationItem key="orders" link="/another">
-      Other
+      Contacto
     </NavigationItem>
   ];
 
