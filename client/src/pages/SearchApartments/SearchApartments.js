@@ -143,10 +143,13 @@ class SearchApartments extends Component {
     // prevent search if loading
     if (this.state.loading) return;
 
+    // prevent if all blanks
+    if (word.trim().length === 0) return;
+
     // fetch
     // start async search
     axios
-      .get("/cities/search/" + encodeURI(this.state.searchField))
+      .get("/cities/search/" + encodeURI(word))
       .then(response => {
         this.setState({ searchHelperList: response.data });
       })
@@ -175,6 +178,9 @@ class SearchApartments extends Component {
 
   searchFieldSubmitHandler = event => {
     event.preventDefault();
+
+    // prevent if no city is writen
+    if (this.state.searchField.trim().length === 0) return;
 
     // start searching for new apartments
     this.searchApartmentsForCity();
