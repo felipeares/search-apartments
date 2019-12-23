@@ -19,15 +19,6 @@ const ApartmentsList = props => {
           a[filter_key] < fo[filter_key][0] ||
           a[filter_key] > fo[filter_key][1]
         ) {
-          console.log(
-            a[filter_key] +
-              " < " +
-              fo[filter_key][0] +
-              " || " +
-              a[filter_key] +
-              " > " +
-              fo[filter_key][1]
-          );
           return false;
         }
       }
@@ -46,14 +37,35 @@ const ApartmentsList = props => {
         />
       );
     });
-  console.log(apartments);
 
-  return <ul className={styles.ApartmentsList}>{apartments}</ul>;
+  // build the search message
+  // when no search has been made it should display the welcoming message
+  let message = (
+    <li className={styles.NoApartmentsMessage}>
+      <h2>¡Hola!</h2>
+      Busca una ciudad y te mostraremos las propiedades listadas
+    </li>
+  );
+  if (props.firstSearch) {
+    message = (
+      <li className={styles.ResultsMessage}>
+        Se encontraron <b>{apartments.length}</b> resultados
+      </li>
+    );
+  }
+
+  return (
+    <ul className={styles.ApartmentsList}>
+      {message}
+      {apartments}
+    </ul>
+  );
 };
 
 ApartmentsList.propTypes = {
   apartments: PropTypes.array.isRequired,
-  filters: PropTypes.array.isRequired
+  filters: PropTypes.array.isRequired,
+  firstSearch: PropTypes.bool.isRequired
 };
 
 export default ApartmentsList;
