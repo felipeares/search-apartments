@@ -1,0 +1,32 @@
+version: "3"
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/client
+      - /client/node_modules
+    links:
+      - api
+    networks:
+      - apartmentsnetwork
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./api:/api
+      - /api/node_modules
+    networks:
+      - apartmentsnetwork
+
+networks:
+  apartmentsnetwork:
+    driver: bridge
