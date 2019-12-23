@@ -55,8 +55,8 @@
   font-weight: 100;
 }
 
-.searchHelpersList li {
-  padding: 8px;
+.searchHelperList li {
+  padding: 10px 8px;
 }
 
 .Filters {

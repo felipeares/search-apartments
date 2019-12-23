@@ -162,10 +162,13 @@ class SearchApartments extends Component {
     // TO REFACTOR: set a timer between key inputs to prevent searches between miliseconds
     if (newValue.length > 1) {
       this.searchCitiesNaemsStartingWith(newValue);
-    }
 
-    // update the new value
-    this.setState({ searchField: newValue });
+      // update the new value
+      this.setState({ searchField: newValue });
+    } else {
+      // update value and text box helper
+      this.setState({ searchField: newValue, searchHelperList: [] });
+    }
   };
 
   searchFieldSubmitHandler = event => {
