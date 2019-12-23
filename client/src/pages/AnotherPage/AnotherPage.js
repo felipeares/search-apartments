@@ -3,7 +3,7 @@ import styles from "./AnotherPage.module.css";
 
 const AnotherPage = () => (
   <div className={styles.AnotherPage}>
-    <p>This page is under construction. Come back later!!</p>
+    <p>Esta página está bajo construcción. Por favor regresa otro día!</p>
   </div>
 );
 

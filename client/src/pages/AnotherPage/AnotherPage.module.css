@@ -1,3 +1,10 @@
 .AnotherPage {
-  font-size: initial;
+  padding: 15px;
+}
+
+.AnotherPage p {
+  margin: 0;
+  padding: 25px;
+  text-align: center;
+  background: aliceblue;
 }
