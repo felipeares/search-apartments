@@ -4,7 +4,13 @@
   padding: 0;
   width: 100%;
   overflow: hidden;
-  background: #ddd;
+  background: #f7f7f7;
+  background-color: #f7f7f7;
+  background-image: url("https://www.transparenttextures.com/patterns/groovepaper.png");
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .ResultsMessage {

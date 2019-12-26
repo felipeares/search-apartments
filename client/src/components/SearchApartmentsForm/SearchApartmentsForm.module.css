@@ -78,9 +78,10 @@
 .FiltersList {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   margin-bottom: 15px;
   color: white;
+  max-width: 450px;
 }
 
 .FiltersList li {
@@ -101,4 +102,12 @@
   font-size: 11px;
   color: #333;
   font-weight: 100;
+  height: 40px;
+}
+
+/* Responsive Screens */
+@media (min-width: 450px) {
+  .FiltersList li select {
+    height: 30px;
+  }
 }

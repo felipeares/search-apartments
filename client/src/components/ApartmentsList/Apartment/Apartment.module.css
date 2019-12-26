@@ -1,5 +1,5 @@
 .Apartment {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   margin-bottom: 10px;
   background: white;
@@ -44,4 +44,14 @@
 
 .Apartment ul li {
   color: #555;
+}
+
+/* Responsive Screens */
+@media (min-width: 450px) {
+  .Apartment {
+    width: 300px;
+    margin: 10px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
 }
