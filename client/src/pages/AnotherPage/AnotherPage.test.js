@@ -14,6 +14,6 @@ describe("AnotherPage: rendering tests", () => {
   });
 
   it("should have a paragraph p with under construction message", () => {
-    expect(wrapper.find("div > p").text()).toMatch(/en construcción/);
+    expect(wrapper.find("div > p").text()).toMatch(/bajo construcción/);
   });
 });
