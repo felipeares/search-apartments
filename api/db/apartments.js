@@ -1,3 +1,0 @@
-apartments = [];
-
-module.exports = apartments;

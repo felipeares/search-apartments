@@ -5,7 +5,6 @@ const router = express.Router();
 router.get("/search/:id", async (req, res) => {
   // only search for exact match
   const city = req.params.id.toLowerCase().trim();
-  console.log(city);
   try {
     const apartments = await Apartment.find({ city: city });
     res.json(apartments);
