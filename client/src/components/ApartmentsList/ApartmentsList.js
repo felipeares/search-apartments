@@ -27,7 +27,7 @@ const ApartmentsList = props => {
     .map(a => {
       return (
         <Apartment
-          key={a.id}
+          key={a._id}
           title={a.title}
           price={a.price}
           size={a.size}
