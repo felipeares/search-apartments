@@ -14,6 +14,7 @@ services:
       - api
     networks:
       - apartmentsnetwork
+
   api:
     build:
       context: ./api
@@ -24,6 +25,20 @@ services:
     volumes:
       - ./api:/api
       - /api/node_modules
+    depends_on:
+      - mongodb
+    networks:
+      - apartmentsnetwork
+
+  mongodb:
+    image: mongo
+    restart: always
+    container_name: mongodb
+    volumes:
+      - ./data-node:/data/db
+    ports:
+      - 27017:27017
+    command: mongod --noauth
     networks:
       - apartmentsnetwork
 
