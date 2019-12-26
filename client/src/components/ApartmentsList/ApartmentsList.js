@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./ApartmentsList.module.css";
 import PropTypes from "prop-types";
 import Apartment from "./Apartment/Apartment";
+import { api_url } from "../../axios";
 
 const ApartmentsList = props => {
   // build a filter object to filter the apartments
@@ -33,7 +34,7 @@ const ApartmentsList = props => {
           size={a.size}
           rooms={a.rooms}
           bathrooms={a.bathrooms}
-          image={a.image}
+          image={`${api_url}static/images/${a.image}`}
         />
       );
     });
