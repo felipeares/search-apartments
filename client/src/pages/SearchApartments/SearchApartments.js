@@ -115,7 +115,7 @@ class SearchApartments extends Component {
   };
 
   // ASYNC AJAX calls
-  searchApartmentsForCity = () => {
+  searchApartmentsForCity = word => {
     // prevent search if loading
     if (this.state.loading) return;
 
@@ -125,7 +125,7 @@ class SearchApartments extends Component {
     // fetch
     // start async search
     axios
-      .get("/apartments/search/" + encodeURI(this.state.searchField))
+      .get("/apartments/search/" + encodeURI(word))
       .then(response => {
         this.setState({
           apartments: response.data,
@@ -183,7 +183,8 @@ class SearchApartments extends Component {
     if (this.state.searchField.trim().length === 0) return;
 
     // start searching for new apartments
-    this.searchApartmentsForCity();
+    const word = this.state.searchField;
+    this.searchApartmentsForCity(word);
   };
 
   selectFromHelperHandler = word => {
@@ -191,7 +192,7 @@ class SearchApartments extends Component {
     this.setState({ searchField: word });
 
     // start searching for new apartments
-    this.searchApartmentsForCity();
+    this.searchApartmentsForCity(word);
   };
 
   // filters Handlers
