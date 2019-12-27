@@ -28,9 +28,7 @@ This will create and run two containers:
 
 To run the unit test on the frontend you must first build the client image (see Setup instructions). Then run:
 
-> `$ docker run -it [FOLDERNAME]_client sh`
-
-> `$ npm test`
+> `$ docker run -it [FOLDERNAME]_client sh -c "npm test"`
 
 This will run the Jest+Enzyme unit tests
 
