@@ -18,7 +18,7 @@ describe("ApartmentsList: rendering tests", () => {
   it("should render N Apartment", () => {
     const n = 10;
     const apartments = Array(n).fill({
-      id: 1,
+      _id: 1,
       title: "",
       price: 0,
       size: 0,
