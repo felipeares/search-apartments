@@ -12,13 +12,17 @@ const SearchApartmentsForm = props => {
   if (props.searchHelperList.length > 0) {
     helperList = (
       <ul className={styles.searchHelperList}>
-        {props.searchHelperList.map(word => {
-          return (
-            <li onClick={() => props.selectFromHelper(word)} key={word}>
-              {word}
-            </li>
-          );
-        })}
+        {props.searchHelperList
+          .filter(word => {
+            return word.includes(props.searchField.toLowerCase());
+          })
+          .map(word => {
+            return (
+              <li onClick={() => props.selectFromHelper(word)} key={word}>
+                {word}
+              </li>
+            );
+          })}
       </ul>
     );
   }

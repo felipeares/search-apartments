@@ -143,10 +143,6 @@ class SearchApartments extends Component {
     // prevent search if loading
     if (this.state.loading) return;
 
-    // prevent if all blanks
-    if (word.trim().length === 0) return;
-
-    // fetch
     // start async search
     axios
       .get("/cities/search/" + encodeURI(word))
@@ -160,19 +156,21 @@ class SearchApartments extends Component {
 
   // Search Form Handlers
   searchFieldChangedHandler = event => {
-    // get the new value
-    const newValue = event.target.value;
+    // get the new value (left trimed)
+    const newValue = event.target.value.replace(/^\s+/, "");
 
-    // search async for cities names if length of string is > 1
-    // TO REFACTOR: set a timer between key inputs to prevent searches between miliseconds
-    if (newValue.length > 1) {
+    // search async for cities names if length is 2
+    if (newValue.length === 2) {
       this.searchCitiesNaemsStartingWith(newValue);
 
       // update the new value
       this.setState({ searchField: newValue });
-    } else {
-      // update value and text box helper
+    } else if (newValue.length < 2) {
+      // update value and clean text box helper
       this.setState({ searchField: newValue, searchHelperList: [] });
+    } else {
+      // only update value
+      this.setState({ searchField: newValue });
     }
   };
 
