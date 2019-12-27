@@ -18,12 +18,6 @@ describe("Apartment: rendering tests", () => {
   });
 
   it("should render a main li with class Apartment", () => {
-    console.log(
-      wrapper
-        .find("li.Apartment")
-        .first()
-        .text()
-    );
     expect(wrapper.find("li.Apartment").length).toEqual(1);
   });
 
